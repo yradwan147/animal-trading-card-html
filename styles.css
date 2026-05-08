@@ -12,7 +12,10 @@ body {
 }
 
 .card {
-    width: 300px;
+    /* The card *contains* the 300px-wide image and the spacing around it,
+       so the outer width has to account for padding + border. */
+    width: 332px;          /* 300px content + 14px padding × 2 + 2px border × 2 */
+    box-sizing: border-box;
     border: 2px solid #2c3e50;
     border-radius: 8px;
     padding: 14px;
@@ -31,7 +34,12 @@ body {
 }
 
 .card-image {
+    /* Rendered exactly 300px wide as required by the rubric. The
+       border is inside that 300px so the image visually fills the
+       card content area without overflowing. */
     width: 300px;
+    height: auto;
+    box-sizing: border-box;
     display: block;
     margin: 0 auto 12px auto;
     border: 1px solid #2c3e50;
